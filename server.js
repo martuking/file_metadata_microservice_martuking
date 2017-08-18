@@ -1,5 +1,7 @@
 var express = require('express');
 var app = express();
+var multer  = require('multer');
+var upload = multer({ dest: 'uploads/' });
 app.use(express.static('public'));
 
 app.get("/", function (request, response) {
