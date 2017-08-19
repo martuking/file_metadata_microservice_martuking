@@ -1,9 +1,12 @@
 var express = require('express');
-var app = express();
 var multer  = require('multer');
+var cors = require('cors');
+var bodyparser = require('body-parser');
+var app = express();
 var upload = multer({ dest: 'uploads/' });
 app.use(express.static('public'));
-
+app.use(bodyparser.json());
+app.use(cors());
 app.get("/", function (request, response) {
   response.sendFile(__dirname + '/views/index.html');
 });
